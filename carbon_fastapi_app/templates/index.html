@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Analyzer - AI-Powered Sustainability</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Decorative background elements -->
+    <div class="decoration-dot" style="top: 10%; left: 10%;"></div>
+    <div class="decoration-dot" style="top: 60%; right: 15%; animation-delay: 2s;"></div>
+    <div class="decoration-dot" style="bottom: 20%; left: 20%; animation-delay: 4s;"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">🌍 CARBON FOOTPRINT ANALYZER</h1>
+            <p class="subtitle">AI-Powered Sustainability & Green Code Intelligence</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid-container">
+            <!-- CO2 Emission Predictor Card -->
+            <div class="feature-card" id="predictor-card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon">🌱</span>
+                        CO₂ Emission Predictor
+                    </h2>
+                </div>
+                
+                <div class="card-content">
+                    <form id="predictorForm" class="input-form">
+                        <div class="input-group">
+                            <label for="country">Country Name</label>
+                            <input 
+                                type="text" 
+                                id="country" 
+                                name="country" 
+                                placeholder="e.g., India, Australia, Germany"
+                                required
+                            >
+                            <span class="input-helper">Enter the name of the country</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="year">Year</label>
+                            <input 
+                                type="number" 
+                                id="year" 
+                                name="year" 
+                                min="1750" 
+                                max="2030" 
+                                value="2024"
+                                required
+                            >
+                            <span class="input-helper">Select a year between 1750 and 2030</span>
+                        </div>
+
+                        <button type="button" class="btn btn-primary">
+                            🔮 Predict Emissions
+                        </button>
+                    </form>
+
+                    <!-- Results Display -->
+                    <div id="predictionResults" class="results-container">
+                        <div class="score-display">
+                            <div class="score-value" id="emissionValue">0.00</div>
+                            <div class="score-label">Predicted CO₂ Emission (Mt)</div>
+                        </div>
+                        <div class="alert alert-success" id="successMessage"></div>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="predictionError" class="alert alert-error hidden"></div>
+                </div>
+            </div>
+
+            <!-- Green Code Analyzer Card -->
+            <div class="feature-card" id="analyzer-card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon">💚</span>
+                        Green Code Analyzer
+                    </h2>
+                </div>
+                
+                <div class="card-content">
+                    <form id="analyzerForm" class="input-form">
+                        <div class="input-group">
+                            <label for="code">Python Code</label>
+                            <textarea 
+                                id="code" 
+                                name="code" 
+                                rows="10"
+                                placeholder="# Paste your Python code here&#10;for i in range(1000000):&#10;    print(i)"
+                                required
+                            ></textarea>
+                            <span class="input-helper">Paste your Python code to analyze its environmental efficiency</span>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="analyzeCode()">
+                            ⚡ Analyze Code
+                        </button>
+                    </form>
+
+                    <!-- Results Display -->
+                    <div id="analysisResults" class="results-container hidden">
+                        <div class="score-display" id="scoreDisplay">
+                            <div class="score-value" id="scoreValue">
+                                <span id="scoreEmoji">🌟</span> <span id="scoreNumber">100</span>/100
+                            </div>
+                            <div class="score-label">Green Code Score</div>
+                        </div>
+
+                        <!-- Issues Display -->
+                        <div id="issuesContainer" class="hidden">
+                            <div class="alert alert-warning">
+                                ⚠️ Issues Detected:
+                            </div>
+                            <div id="issuesList"></div>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="noIssues" class="alert alert-success hidden">
+                            ✅ No major issues detected! Your code is environmentally efficient.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🌿 Building a sustainable future with AI-powered insights</p>
+        </footer>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="spinner-overlay hidden">
+        <div class="spinner">
+            <div class="spinner-circle"></div>
+            <p class="spinner-text">Analyzing...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
